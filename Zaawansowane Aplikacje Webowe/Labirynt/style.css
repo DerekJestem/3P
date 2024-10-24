@@ -1,0 +1,15 @@
+
+html, body
+{
+    height: 100vh;
+}
+
+.header, .footer
+{
+    height: 80px;
+}
+
+.main
+{
+    height: calc(100vh - 160px);
+}

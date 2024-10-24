@@ -1,0 +1,118 @@
+
+*
+{
+    font-family: Garamond;
+}
+
+.baner
+{
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 80px;
+}
+
+.glowny
+{
+    width: 100%;
+    height: 600px;
+}
+
+.boczny
+{
+    background-color: coral;
+    width: 20%;
+    height: 700px;
+}
+
+.stopka
+{
+    background-color: tomato;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+h5
+{
+    margin: 0;
+}
+
+img
+{
+    border-radius: 50%;
+    padding: 0 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.chat
+{
+    border: 1px solid tomato;
+    padding: 15px;
+    height: 470px;
+    overflow: scroll;
+    margin: 10px;
+}
+
+.wiadomosc-jolanta, .wiadomosc-krzysztof
+{
+    border-radius: 5px;
+    width: 90%;
+    height: 70px;
+    margin: 2%;
+    padding: 3px;
+}
+
+.wiadomosc-jolanta
+{
+    background-color: #EEE;   
+    display: flex;
+}
+
+.wiadomosc-krzysztof
+{
+    background-color: #CCC;
+    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+button
+{
+    background-color: tomato;
+    border: 1px solid darkred;
+    padding: 5px;
+    font-weight: bold;
+}
+
+input[type="text"]
+{
+    width: 500px;
+    margin: 5px;
+}
+
+.container
+{
+    width: 100%;
+    display: flex;
+}
+
+.left
+{
+    width: 80%;
+}
+
+.wyslij
+{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+h2
+{
+    margin: 0;
+    padding: 20px;
+}
