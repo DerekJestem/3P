@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykłady</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: white;
+            background-color: rgb(27, 27, 27);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .row {
+            display: flex;
+            gap: 25px;
+        }
+        .image {
+            width: 150px;
+            height: 150px;
+            background-color: rgba(255, 0, 0, 0.25);
+            border: 2px solid rgba(255, 0, 0, 0.50);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Zdarzenia myszy</h1>
+            <div class="row">
+                <div class="image" onclick="changeColor(0)">onclick</div>
+                <div class="image" ondblclick="changeColor(1)">ondblclick</div>
+                <div class="image" onmousedown="changeColor(2)">onmousedown</div>
+                <div class="image" onmouseup="changeColor(3)">onmouseup</div>
+                <div class="image" onmouseover="changeColor(4)">onmouseover</div>
+                <div class="image" onmousemove="changeColor(5)">onmousemove</div>
+                <div class="image" onmouseout="changeColor(6)">onmouseout</div>
+            </div>
+            <hr>
+            <h1>Zdarzenia klawiatury</h1>
+            <div class="row">
+                <div class="image" onclick="changeColor(0)">onclick</div>
+                <div class="image" ondblclick="changeColor(1)">ondblclick</div>
+                <div class="image" onmousedown="changeColor(2)">onmousedown</div>
+                <div class="image" onmouseup="changeColor(3)">onmouseup</div>
+                <div class="image" onmouseover="changeColor(4)">onmouseover</div>
+                <div class="image" onmousemove="changeColor(5)">onmousemove</div>
+                <div class="image" onmouseout="changeColor(6)">onmouseout</div>
+            </div>
+        </div>
+    </main>
+    <script>
+        function changeColor(index) {
+            index = parseInt(index)
+            let bgc = "rgba(0, 255, 0, 0.25)"
+            let border = "2px solid rgba(0, 255, 0, 0.50)"
+
+            let bgcOLD = "rgba(255, 0, 0, 0.25)"
+            let borderOLD = "2px solid rgba(255, 0, 0, 0.50)"
+            
+            let images = document.querySelectorAll('.image')
+            let image = images[index]
+
+            image.style.backgroundColor = bgc
+            image.style.border = border
+
+            setTimeout(() => {
+                image.style.backgroundColor = bgcOLD
+                image.style.border = borderOLD
+            }, 50);
+        }
+    </script>
+</body>
+</html>
