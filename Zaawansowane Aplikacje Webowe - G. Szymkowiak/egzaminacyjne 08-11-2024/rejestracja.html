@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="./styl.css">
+</head>
+<body>
+    <header>
+        <h1>Formularz rejestracyjny konferencji <em>Nasze Kwiaty</em></h1>
+    </header>
+    <main>
+        <form>
+            <div id="blok1">
+                <h2>Dane osobowe</h2>
+                <input type="text" placeholder="Wpisz imię..." required>
+                <input type="text" placeholder="Wpisz nazwisko..." required>
+                <button onclick="toSecondBlock()">Następna karta</button>
+            </div>
+            <div id="blok2" style="display: none;">
+                <h2>Dane kontaktowe</h2>
+                <input type="email" placeholder="Twój e-mail..." required>
+                <input type="tel" placeholder="Twój numer telefonu...">
+                <button onclick="toThirdBlock()">Następna karta</button>
+            </div>
+            <div id="blok3" style="display: none;">
+                <h2>Hasło do logowania</h2>
+                <input type="password" placeholder="Podaj hasło" required>
+                <input type="password" placeholder="Powtórz hasło" required>
+                <button onclick="confirm()">Zatwierdź</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <div>
+            <video controls>
+                <source src="motyl.mp4" type="video/mp4">
+                Przeglądarka nie obsługuje tego formatu
+            </video>
+        </div>
+        <div>
+            <h3>Plan konferencji</h3>
+            <table>
+                <tr>
+                    <td>9:00 - 12:00</td>
+                    <td>Pielęgnacja roślin</td>
+                </tr>
+                <tr>
+                    <td>13:00 - 15:00</td>
+                    <td>Targi kwiatowe</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <p><a href="https://kwiaty.pl/">Internetowa kwiaciarnia</a></p>
+        </div>
+        <div>
+            <p>Autor: Jakub Wieczorek</p>
+        </div>
+    </footer>
+    <script src="skrypt.js"></script>
+</body>
+</html>
