@@ -2,15 +2,15 @@
 #include <vector>
 #include <sstream>
 #include <regex>
-#include <windows.h> // Potrzebne do aktywacji kolorÃ³w w konsoli systemu Windows
+#include <windows.h> // Potrzebne do aktywacji kolorów w konsoli systemu Windows
 #include <string>
 
 using namespace std;
 
-// Deklarujemy kontener na tablicÄ™, Å¼eby byÅ‚ widoczny w poszczegÃ³lnych funkcjach:
+// Deklarujemy kontener na tablicê, ¿eby by³ widoczny w poszczególnych funkcjach:
 vector<int> tablicaLiczb;
 
-// ==================== WYPISZ TABLICÄ˜ ===================
+// ==================== WYPISZ TABLICÊ ===================
 void wypiszTablice(vector<int> tablicaLiczb) {
     string tablicaJakoString = "";
 
@@ -18,7 +18,7 @@ void wypiszTablice(vector<int> tablicaLiczb) {
         tablicaJakoString += to_string(tablicaLiczb[wartoscLicznika]);
         tablicaJakoString += ", ";
     }
-    // Wycinamy ze stringa dwa ostatnie znaki (przecinek i spacjÄ™):
+    // Wycinamy ze stringa dwa ostatnie znaki (przecinek i spacjê):
     tablicaJakoString.pop_back();
     tablicaJakoString.pop_back();
     cout << tablicaJakoString;
@@ -37,51 +37,52 @@ void sortowaniePrzezWstawianie(vector<int>& tablicaLiczb) {
             tablicaLiczb[licznikWewnetrzny + 1] = tablicaLiczb[licznikWewnetrzny];
             licznikWewnetrzny--;
         }
-        // Wstawiamy wybranÄ… liczbÄ™ na wÅ‚aÅ›ciwe miejsce
+        // Wstawiamy wybran¹ liczbê na w³aœciwe miejsce
         tablicaLiczb[licznikWewnetrzny + 1] = wybranaLiczba;
     }
 }
 
 int main() {
-    cout << "Autor: Jakub Wieczorek";
-    // ================= KOLOROWANIE NAPISÃ“W ================
+    setlocale(LC_ALL, "pl_PL");
+
+    // ================= KOLOROWANIE NAPISÓW ================
     HANDLE konsola = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING // JeÅ›li nie jest zdefiniowany, to:
-     #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
-     #endif
-     // Aby powyÅ¼sze dziaÅ‚aÅ‚o, musimy aktywowaÄ‡ i to, co poniÅ¼ej:
-     #ifndef ENABLE_PROCESSED_OUTPUT // JeÅ›li nie jest zdefiniowany, to:
-     #define ENABLE_PROCESSED_OUTPUT 0x0001
-     #endif
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING // Jeœli nie jest zdefiniowany, to:
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
+    // Aby powy¿sze dzia³a³o, musimy aktywowaæ i to, co poni¿ej:
+#ifndef ENABLE_PROCESSED_OUTPUT // Jeœli nie jest zdefiniowany, to:
+#define ENABLE_PROCESSED_OUTPUT 0x0001
+#endif
     DWORD dwMode = 0;
     dwMode |= ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     SetConsoleMode(konsola, dwMode);
     string suroweDaneUzytkownika, oczyszczoneDaneUzytkownika;
     cout << "\033[1;36;40m\n===== SORTOWANIE PRZEZ WSTAWIANIE =====\033[0m" << endl;
     cout << "DEFINICJA:" << endl;
-    cout << "\033[1;30;40mTablica z liczbami dzielona jest logicznie (w naszym umyÅ›le) na dwie tablice:\n-\033[0m \033[1;37;40mtablicÄ™ posortowanÄ…\033[0m \033[1;30;40mskÅ‚adajÄ…cÄ… siÄ™ poczÄ…tkowo z jednej liczby --> pierwszy element w tablicy;\n(naleÅ¼y uzmysÅ‚owiÄ‡ sobie, Å¼e kaÅ¼dy zbiÃ³r skÅ‚adajÄ…cy siÄ™ z jednego elementu jest zbiorem posortowanym);\n-\033[0m \033[1;37;40mtablicÄ™ nieposortowanÄ…\033[0m \033[1;30;40mskÅ‚adajÄ…cÄ… siÄ™ z pozostaÅ‚ych elementÃ³w w tablicy.\n\nSortowanie zaczynamy od wybrania drugiej liczby w tablicy i wstawienia jej w odpowiednie miejsce\nw tablicy posortowanej (tej skÅ‚adajÄ…cej siÄ™ z jednego elementu). Mamy dwie moÅ¼liwoÅ›ci:\n"
-        "- wstawimy jÄ… przed pierwszym elementem tablicy uporzÄ…dkowanej (jeÅ›li jest mniejsza);\n"
-        "- lub wstawimy jÄ… po pierwszym elemencie tablicy uporzÄ…dkowanej (jeÅ›li jest wiÄ™ksza).\n"
-        "W tej drugiej sytuacji, liczba nadpisze samÄ… siebie (czyli pozornie nic siÄ™ nie zmieni), ale stanie\nsiÄ™ ona w tym momencie czÄ™Å›ciÄ… tablicy posortowanej (tablica posortowana bÄ™dzie juÅ¼ miaÅ‚a dwa elementy).\n\nW kolejnym przebiegu pÄ™tli FOR, bierzemy nastÄ™pnÄ… liczbÄ™, porÃ³wnujemy jÄ… z elementami w tablicy posortowanej\ni wstawiamy w odpowiednie miejsce. KaÅ¼da kolejna liczba w tablicy przesuwa siÄ™ tak dÅ‚ugo w lewo,\naÅ¼ nie napotka liczby mniejszej od siebie lub rÃ³wnej (wtedy zatrzymuje siÄ™) i przemieszczanie zaczyna\nnastÄ™pna liczba. NadrzÄ™dna pÄ™tla przechodzi wiÄ™c po elementach tylko raz.\033[0m\n\n";
+    cout << "\033[1;30;40mTablica z liczbami dzielona jest logicznie (w naszym umyœle) na dwie tablice:\n-\033[0m \033[1;37;40mtablicê posortowan¹\033[0m \033[1;30;40msk³adaj¹c¹ siê pocz¹tkowo z jednej liczby --> pierwszy element w tablicy;\n(nale¿y uzmys³owiæ sobie, ¿e ka¿dy zbiór sk³adaj¹cy siê z jednego elementu jest zbiorem posortowanym);\n-\033[0m \033[1;37;40mtablicê nieposortowan¹\033[0m \033[1;30;40msk³adaj¹c¹ siê z pozosta³ych elementów w tablicy.\n\nSortowanie zaczynamy od wybrania drugiej liczby w tablicy i wstawienia jej w odpowiednie miejsce\nw tablicy posortowanej (tej sk³adaj¹cej siê z jednego elementu). Mamy dwie mo¿liwoœci:\n"
+        "- wstawimy j¹ przed pierwszym elementem tablicy uporz¹dkowanej (jeœli jest mniejsza);\n"
+        "- lub wstawimy j¹ po pierwszym elemencie tablicy uporz¹dkowanej (jeœli jest wiêksza).\n"
+        "W tej drugiej sytuacji, liczba nadpisze sam¹ siebie (czyli pozornie nic siê nie zmieni), ale stanie\nsiê ona w tym momencie czêœci¹ tablicy posortowanej (tablica posortowana bêdzie ju¿ mia³a dwa elementy).\n\nW kolejnym przebiegu pêtli FOR, bierzemy nastêpn¹ liczbê, porównujemy j¹ z elementami w tablicy posortowanej\ni wstawiamy w odpowiednie miejsce. Ka¿da kolejna liczba w tablicy przesuwa siê tak d³ugo w lewo,\na¿ nie napotka liczby mniejszej od siebie lub równej (wtedy zatrzymuje siê) i przemieszczanie zaczyna\nnastêpna liczba. Nadrzêdna pêtla przechodzi wiêc po elementach tylko raz.\033[0m\n\n";
 label_wpiszLiczby:
 
-    // Wpisywanie danych uÅ¼ytkownika
+    // Wpisywanie danych u¿ytkownika
     while (suroweDaneUzytkownika == "") {
-        cout << "\n\nPodaj ciÄ…g liczb caÅ‚kowitych oddzielonych spacjÄ…: ";
+        cout << "\n\nPodaj ci¹g liczb ca³kowitych oddzielonych spacj¹: ";
         getline(cin, suroweDaneUzytkownika);
     }
 
-    // Oczyszczanie danych uÅ¼ytkownika z niepoprawnych znakÃ³w
+    // Oczyszczanie danych u¿ytkownika z niepoprawnych znaków
     oczyszczoneDaneUzytkownika = regex_replace(suroweDaneUzytkownika, regex{ R"([^-\d ])" }, "");
 
     if (oczyszczoneDaneUzytkownika == "") {
-        cout << "\n\033[1;31;40mWprowadzone przez ciebie dane nie zawierajÄ… ani jednej liczby...\033[0m" << endl;
+        cout << "\n\033[1;31;40mWprowadzone przez ciebie dane nie zawieraj¹ ani jednej liczby...\033[0m" << endl;
         suroweDaneUzytkownika = "";
         goto label_wpiszLiczby;
     }
 
-    cout << "\n\033[1;30;40mZawartoÅ›Ä‡ danych po oczyszczeniu: " << oczyszczoneDaneUzytkownika << ".\033[0m\n" << endl;
+    cout << "\n\033[1;30;40mZawartoœæ danych po oczyszczeniu: " << oczyszczoneDaneUzytkownika << ".\033[0m\n" << endl;
 
     istringstream strumienDanych(oczyszczoneDaneUzytkownika);
     int kolejnaLiczbaZeStrumienia;
@@ -89,7 +90,7 @@ label_wpiszLiczby:
         tablicaLiczb.push_back(kolejnaLiczbaZeStrumienia);
     }
 
-    cout << "\033[1;30;40mDane po zamianie na tablicÄ™ (przed sortowaniem): ";
+    cout << "\033[1;30;40mDane po zamianie na tablicê (przed sortowaniem): ";
     wypiszTablice(tablicaLiczb);
     cout << "\033[0m" << endl << endl;
 
@@ -100,7 +101,9 @@ label_wpiszLiczby:
     wypiszTablice(tablicaLiczb);
     cout << "\033[0m." << endl << endl;
 
-    cout << "NaciÅ›nij ENTER, aby zakoÅ„czyÄ‡..." << endl;
-     cin.get();
+    cout << "Autor: Kamil Janik" << endl << endl;
+
+    cout << "Naciœnij ENTER, aby zakoñczyæ..." << endl;
+    cin.get();
     return 0;
 }
