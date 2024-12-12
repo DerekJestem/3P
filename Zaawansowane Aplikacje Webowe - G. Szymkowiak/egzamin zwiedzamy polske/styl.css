@@ -1,0 +1,79 @@
+@keyframes a_thumbnails {
+    0% {
+        padding-left: 50px;
+    }
+
+    100% {
+        padding-left: 0px;
+    }
+}
+
+@keyframes a_main-img {
+    0% {
+        transform: scale(100%);
+    }
+
+    100% {
+        transform: scale(120%);
+    }
+}
+
+* {
+    font-family: 'Georgia';
+    color: white;
+
+    box-sizing: border-box;
+}
+
+header, footer {
+    background-color: maroon;
+    text-align: center;
+    padding: 2px;
+}
+
+.left, .mid, .right {
+    background-color: lightsalmon;
+    height: 527px;
+    float: left;
+}
+
+.left, .right {
+    width: 15%;
+}
+
+.mid {
+    width: 70%;
+}
+
+.thumbnails {
+    width: 100%;
+    background-color: maroon;
+    height: 70px;
+    float: inline-start;
+}
+
+#button-prev, #button-next {
+    background-color: lightsalmon;
+    color: maroon;
+    border: none;
+    font-size: 400%;
+    display: block;
+    margin: auto;
+    padding-top: 210px;
+}
+
+.thumbnails img {
+    height: 70px;
+    animation: a_thumbnails 4s;
+}
+
+.mid #main-image {
+    display: block;
+    margin: auto;
+    padding-top: 45px;
+}
+
+.mid #main-image:hover {
+    transform: scale(120%);
+    animation: a_main-img 5s;
+}

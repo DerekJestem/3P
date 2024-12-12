@@ -1,36 +1,32 @@
 #include <iostream>
-
+#include <climits>
 using namespace std;
 
-int main()
-{
-    int N;
+int main() {
+    int n;
+    cout << "Podaj rozmiar tablicy: ";
+    cin >> n;
 
-    cout << "Podaj dlugosc tablicy: ";
-    cin >> N;
-
-    int arr[N];
-
-    for(int i = 0; i < N; i++)
-    {
-        cout << "Podaj liczbe: ";
-        cin >> arr[i];
+    int tablica[] = {};
+    cout << "Podaj " << n << " elementów tablicy:\n";
+    for(int i = 0; i < n; i++) {
+        cin >> tablica[i];
     }
 
-    int max = arr[0];
-    int min = arr[0];
-    for(int i = 0; i < N; i++)
-    {
-        if(arr[i] > max)
-        {
-            max = arr[i];
+    int max = INT_MIN;
+    int min = INT_MAX;
+
+    for(int i = 0; i < n; i++) {
+        if(tablica[i] > max) {
+            max = tablica[i];
         }
-        if(arr[i] < min)
-        {
-            min = arr[i];
+        if(tablica[i] < min) {
+            min = tablica[i];
         }
     }
 
-    cout << "Minimalna wartosc: " << min << endl;
-    cout << "Maksymalna wartosc element: " << max << endl;
+    cout << "Maksymalny element: " << max << endl;
+    cout << "Minimalny element: " << min << endl;
+
+    return 0;
 }
