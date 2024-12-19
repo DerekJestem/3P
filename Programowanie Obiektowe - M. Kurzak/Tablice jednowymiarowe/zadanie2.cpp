@@ -1,34 +1,34 @@
 #include <iostream>
-
 using namespace std;
 
-int main()
-{
-    int N;
+int main() {
+    int n;
+    cout << "Podaj rozmiar tablicy: ";
+    cin >> n;
 
-    cout << "Podaj dlugosc tablicy: ";
-    cin >> N;
-
-    int arr[N];
-
-    for(int i = 0; i < N; i++)
-    {
-        cout << "Podaj liczbe: ";
-        cin >> arr[i];
+    int tablica[] = {};
+    cout << "Podaj " << n << " elementów tablicy:\n";
+    for(int i = 0; i < n; i++) {
+        cin >> tablica[i];
     }
 
-    int reverseArr[N];
-    int j = 0;
-    for(int i = N - 1; i >= 0; i--)
-    {
-        reverseArr[j] = arr[i];
+    cout << "Tablica przed odwróceniem:\n";
+    for(int i = 0; i < n; i++) {
+        cout << tablica[i] << " ";
+    }
+    cout << endl;
 
-        j++;
+    for(int i = 0; i < n/2; i++) {
+        int temp = tablica[i];
+        tablica[i] = tablica[n-1-i];
+        tablica[n-1-i] = temp;
     }
 
-    cout << "Odwrocona tablica: " << endl;
-    for(int i = 0; i < N; i++)
-    {
-        cout << reverseArr[i] << " ";
+    cout << "Tablica po odwróceniu:\n";
+    for(int i = 0; i < n; i++) {
+        cout << tablica[i] << " ";
     }
+    cout << endl;
+
+    return 0;
 }

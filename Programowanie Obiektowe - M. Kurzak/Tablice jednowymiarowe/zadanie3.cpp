@@ -1,27 +1,24 @@
 #include <iostream>
-
 using namespace std;
 
-int main()
-{
-    int N;
+int main() {
+    int n;
+    cout << "Podaj rozmiar tablicy: ";
+    cin >> n;
 
-    cout << "Podaj dlugosc tablicy: ";
-    cin >> N;
-
-    double arr[N];
-
-    double avg = 0;
-    for(int i = 0; i < N; i++)
-    {
-        cout << "Podaj liczbe: ";
-        cin >> arr[i];
-
-        avg += arr[i];
+    int tablica[] = {};
+    cout << "Podaj " << n << " elementów tablicy (liczby rzeczywiste):\n";
+    for(int i = 0; i < n; i++) {
+        cin >> tablica[i];
     }
 
-    avg /= N;
+    double suma = 0;
+    for(int i = 0; i < n; i++) {
+        suma += tablica[i];
+    }
 
-    cout << "Srednia wynosi: " << avg;
+    double srednia = suma / n;
+    cout << "Średnia wartość elementów tablicy: " << srednia << endl;
 
+    return 0;
 }
