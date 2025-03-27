@@ -1,20 +1,54 @@
-﻿// wieczorek.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
-
 #include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+class Sort {
+private:
+    int t[10];
+
+    int findMax(int i) {
+        int maxIndex = i; 
+        for (int j = i + 1; j < 10; j++) {
+            if (t[j] > t[maxIndex]) {
+                maxIndex = j; 
+            }
+        }
+        return maxIndex;
+    }
+
+public:
+    void loadT() {
+        cout << "Podaj 10 liczb calkowitych do posortowania:" << endl;
+        for (int i = 0; i < 10; i++) {
+            cin >> t[i];
+        }
+    }
+
+    void sort() {
+        for (int i = 0; i < 9; i++) { 
+            int maxIndex = findMax(i); 
+            if (maxIndex != i) {
+                int temp = t[i];
+                t[i] = t[maxIndex];
+                t[maxIndex] = temp;
+            }
+        }
+    }
+
+    void displayT() {
+        cout << "Posortowana tablica (malejąco):" << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << t[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Sort sort;
+
+    sort.loadT();
+    sort.sort();
+    sort.displayT();
+
+    return 0;
 }
-
-// Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
-// Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
-
-// Porady dotyczące rozpoczynania pracy:
-//   1. Użyj okna Eksploratora rozwiązań, aby dodać pliki i zarządzać nimi
-//   2. Użyj okna programu Team Explorer, aby nawiązać połączenie z kontrolą źródła
-//   3. Użyj okna Dane wyjściowe, aby sprawdzić dane wyjściowe kompilacji i inne komunikaty
-//   4. Użyj okna Lista błędów, aby zobaczyć błędy
-//   5. Wybierz pozycję Projekt > Dodaj nowy element, aby utworzyć nowe pliki kodu, lub wybierz pozycję Projekt > Dodaj istniejący element, aby dodać istniejące pliku kodu do projektu
-//   6. Aby w przyszłości ponownie otworzyć ten projekt, przejdź do pozycji Plik > Otwórz > Projekt i wybierz plik sln
